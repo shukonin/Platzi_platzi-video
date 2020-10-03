@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+        //global scope
+        var message = "Hello Platzi!"
+
+        //function scope
+        /*function printNumber() {
+            for(var i = 0; i < 10; i++){
+                // setTimeout(function(){
+                //     console.log(i)
+                // }, 100)
+                function printCorrect(n) {
+                    setTimeout(function(){
+                        console.log(n)
+                    }, 100)
+                }
+                printCorrect(i)
+            }
+        }*/
+
+        // block scope
+        function printNumber() {
+            for(let i = 0; i < 10; i++){
+                setTimeout(function(){
+                    console.log(i)
+                }, 100)
+            }
+        }
+
+        printNumber()
+    </script>
+</body>
+</html>
