@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+    
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender más</button></li>
+        <li><button class="call-to-action">¡Nunca parar de aprender!</button></li>
+    </ul>
+
+    <script>
+        //Establece 'this' usando 'call'
+        function saludar() {
+            console.log(`Hola. Soy ${this.name} ${this.apellido}`)
+        }
+
+        const richard = {
+            name: 'Richard',
+            apellido: 'Kaufman'
+        }
+        saludar.call(richard)
+
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} metros hacia el ${direccion}`)
+        }
+        caminar.call(richard, 400, 'Norte')
+
+        //Establece 'this' usando 'apply' y pasar argumentos a la función
+        const valores = [800, 'noreste']
+        //caminar.apply(richard, [100, 'Noreste'])
+        caminar.apply(richard, valores)
+
+        //Establecer 'this' en una nuevaa función usando 'bind'
+        const daniel = {
+            name: 'Daniel',
+            apellido: 'Sanchez'
+        }
+        
+        //const danielSaluda = saludar.bind(daniel)()
+        const danielSaluda = saludar.bind(daniel)
+        danielSaluda()
+
+        caminar.bind(daniel,1000)('Este')
+        //const danielCamina = caminar.bind(daniel)
+        //danielCamina(2000,'Este')
+
+        //Cuándo es útil usar uno de estos métodos
+        const buttons = document.getElementsByClassName('call-to-action')
+        // buttons.forEach(button => {
+        //     button.onclick = () => alert('Nunca pares de aprender')
+        // })
+
+        Array.prototype.forEach.call(buttons, button => {
+            button.onclick = () => alert('Nunca pares de aprender')
+        })
+
+    </script>
+</body>
+</html>
