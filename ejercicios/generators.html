@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+        function* simpleGenerator() {
+            console.log('generator start')
+            yield 1
+            yield 2
+            yield 3
+            console.log('generator end')
+        }
+
+        const gen = simpleGenerator()
+        console.log(gen.next())
+        console.log(gen.next())
+        console.log(gen.next())
+        console.log(gen.next())
+
+        //También puede haber generadores infinitos
+        function* idMaker() {
+            let id = 1
+            while(true){
+                yield id
+                id++
+            }
+        }
+
+        //Cuando se llama a next también se pueden pasar valores
+        function* idMakerWithReset() {
+            let id = 1
+            let reset
+            while(true){
+                reset = yield id;
+                (reset) ? id = 1 : id++
+            }
+        }
+
+        const makerReset = idMakerWithReset()
+        console.log(makerReset.next())
+        console.log(makerReset.next())
+        console.log(makerReset.next())
+        console.log(makerReset.next())
+        console.log(makerReset.next(true))
+
+        //Ejemplo un poco más complejo: la secuencia de fibonacci
+        function* fibonacci() {
+            let a = 1
+            let b = 1
+            while(true) {
+                const nextNumber = a + b
+                a = b
+                b = nextNumber
+                yield nextNumber
+            }
+        }
+
+    </script>
+</body>
+</html>
