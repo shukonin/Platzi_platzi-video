@@ -4,12 +4,16 @@
   "description": "Curso profesional de JavaScript",
   "main": "index.js",
   "scripts": {
-    "start": "live-server"
+    "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
   },
   "keywords": [],
   "author": "shukonin",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.1"
-  }
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.3"
+  },
+  "browserlists": [
+    "last 1 Chrome version"
+  ]
 }
