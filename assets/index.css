@@ -1,0 +1,36 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+header p {
+    text-align: center;
+    color: darkorange;
+    font-weight: bold;
+}
+
+video {
+    display: block;
+    margin: 10px auto;
+    width: 80vw;
+}
+
+li {
+    font-size: 25px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container button {
+    margin: 0 5px;
+    height: 3vh;
+    width: 15vw;
+    border: 1px solid darkgrey;
+    font-weight: bold;
+}
